@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Aplicación interactiva para ejecutar los módulos Python de la Actividad de Clase 3." />
+    <title>Actividad 03 · Laboratorio Python</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#inicio"><span class="brand-mark">A3</span><span><strong>Laboratorio Python</strong><small>Actividad de clase 03</small></span></a>
+        <nav class="module-nav" aria-label="Módulos">
+          <p class="nav-label">Ejecutar funciones</p>
+          <a class="nav-link active" href="#inicio" data-target="inicio"><span>⌂</span> Inicio</a>
+          <a class="nav-link" href="#modulo-1" data-target="modulo-1"><span class="nav-number">01</span> Calificaciones <em>2</em></a>
+          <a class="nav-link" href="#modulo-2" data-target="modulo-2"><span class="nav-number">02</span> Carrito <em>2</em></a>
+          <a class="nav-link" href="#modulo-3" data-target="modulo-3"><span class="nav-number">03</span> Inventario <em>3</em></a>
+          <a class="nav-link" href="#modulo-4" data-target="modulo-4"><span class="nav-number">04</span> Operaciones <em>2</em></a>
+        </nav>
+        <div class="sidebar-note"><span class="status-dot"></span><div><strong>Motor Python activo</strong><small>Las funciones se ejecutan realmente</small></div></div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <button class="menu-button" id="menuButton" type="button" aria-label="Abrir menú">☰</button>
+          <div class="runtime-status"><span></span><div><strong>Servidor conectado</strong><small>Python · ejecución local</small></div></div>
+          <button class="clear-button" id="clearResults" type="button">Limpiar resultados</button>
+        </header>
+
+        <div class="content-wrap lab-content">
+          <section class="lab-hero" id="inicio">
+            <div class="eyebrow"><span></span> LABORATORIO INTERACTIVO</div>
+            <div class="lab-hero-grid">
+              <div><h1>Probá cada función <span>en tiempo real.</span></h1><p>Ingresá datos, ejecutá el ejercicio y comprobá el resultado producido por el código Python original.</p></div>
+              <div class="run-summary"><span>ESTADO</span><strong>9/9</strong><p>funciones disponibles</p><div><i></i> Listo para ejecutar</div></div>
+            </div>
+            <div class="quick-nav">
+              <a href="#modulo-1"><b>01</b><span>Notas<small>Promedio y calificación</small></span><i>→</i></a>
+              <a href="#modulo-2"><b>02</b><span>Carrito<small>Productos y precios</small></span><i>→</i></a>
+              <a href="#modulo-3"><b>03</b><span>Inventario<small>Stock y reportes</small></span><i>→</i></a>
+              <a href="#modulo-4"><b>04</b><span>Operaciones<small>Ventas y horarios</small></span><i>→</i></a>
+            </div>
+          </section>
+
+          <section class="module-section accent-blue" id="modulo-1">
+            <div class="module-heading"><div class="module-number">01</div><div class="module-title"><p>Módulo 1</p><h2>Calificaciones</h2></div><div class="module-description">Calculá promedios y obtené la categoría correspondiente a una nota.</div></div>
+            <div class="runner-grid">
+              <form class="runner-card" data-endpoint="promedio">
+                <div class="runner-head"><span class="file-icon">PY</span><div><h3>Calcular promedio</h3><p>Ingresá las notas separadas por comas.</p></div></div>
+                <label>Lista de notas<input name="notas" value="8, 7.5, 9, 6" placeholder="Ej: 8, 7.5, 9" required /></label>
+                <button class="run-button" type="submit">▶ Ejecutar función</button>
+                <output class="result" aria-live="polite"><span>Resultado</span><strong>Esperando ejecución…</strong></output>
+              </form>
+              <form class="runner-card" data-endpoint="calificacion">
+                <div class="runner-head"><span class="file-icon">PY</span><div><h3>Obtener calificación</h3><p>La nota debe estar entre 0 y 10.</p></div></div>
+                <label>Nota<input name="nota" type="number" min="0" max="10" step="0.1" value="8.5" required /></label>
+                <button class="run-button" type="submit">▶ Ejecutar función</button>
+                <output class="result" aria-live="polite"><span>Resultado</span><strong>Esperando ejecución…</strong></output>
+              </form>
+            </div>
+          </section>
+
+          <section class="module-section accent-violet" id="modulo-2">
+            <div class="module-heading"><div class="module-number">02</div><div class="module-title"><p>Módulo 2</p><h2>Carrito y precios</h2></div><div class="module-description">Agregá productos a un carrito y calculá descuentos con IVA.</div></div>
+            <div class="runner-grid">
+              <form class="runner-card" data-endpoint="carrito">
+                <div class="runner-head"><span class="file-icon">PY</span><div><h3>Agregar producto</h3><p>El carrito se conserva mientras usás la aplicación.</p></div></div>
+                <label>Producto<div class="inline-input"><input name="producto" value="Libro" required /><button type="submit">Agregar</button></div></label>
+                <input name="carrito" type="hidden" value="[]" />
+                <div class="cart-view" data-cart><span>El carrito está vacío</span></div>
+                <output class="result" aria-live="polite"><span>Resultado</span><strong>Esperando ejecución…</strong></output>
+              </form>
+              <form class="runner-card" data-endpoint="descuento">
+                <div class="runner-head"><span class="file-icon">PY</span><div><h3>Aplicar descuento</h3><p>Calcula el descuento y luego suma 21% de IVA.</p></div></div>
+                <div class="field-row"><label>Precio<input name="precio" type="number" min="0" step="0.01" value="100" required /></label><label>Descuento %<input name="descuento" type="number" min="0" max="100" step="0.1" value="10" required /></label></div>
+                <button class="run-button" type="submit">▶ Calcular precio final</button>
+                <output class="result" aria-live="polite"><span>Precio final con IVA</span><strong>Esperando ejecución…</strong></output>
+              </form>
+            </div>
+          </section>
+
+          <section class="module-section accent-orange" id="modulo-3">
+            <div class="module-heading"><div class="module-number">03</div><div class="module-title"><p>Módulo 3</p><h2>Inventario</h2></div><div class="module-description">Actualizá stock, buscá productos y generá un reporte de inventario.</div></div>
+            <div class="runner-grid">
+              <form class="runner-card" data-endpoint="stock">
+                <div class="runner-head"><span class="file-icon">PY</span><div><h3>Actualizar stock</h3><p>El stock nunca puede quedar en negativo.</p></div></div>
+                <label>Nombre del producto<input name="nombre" value="Mouse" required /></label>
+                <div class="field-row"><label>Stock actual<input name="stock" type="number" min="0" value="5" required /></label><label>Cambio<input name="cantidad" type="number" value="-2" required /></label></div>
+                <button class="run-button" type="submit">▶ Actualizar stock</button>
+                <output class="result" aria-live="polite"><span>Producto actualizado</span><strong>Esperando ejecución…</strong></output>
+              </form>
+              <form class="runner-card" data-endpoint="buscar">
+                <div class="runner-head"><span class="file-icon">PY</span><div><h3>Buscar producto</h3><p>Busca por nombre dentro del inventario.</p></div></div>
+                <label>Inventario JSON<textarea name="inventario" rows="4">[{"nombre":"Teclado","stock":4,"precio":50},{"nombre":"Mouse","stock":7,"precio":25}]</textarea></label>
+                <label>Nombre a buscar<input name="nombre" value="Teclado" required /></label>
+                <button class="run-button" type="submit">⌕ Buscar producto</button>
+                <output class="result" aria-live="polite"><span>Coincidencia</span><strong>Esperando ejecución…</strong></output>
+              </form>
+              <form class="runner-card wide" data-endpoint="reporte">
+                <div class="runner-head"><span class="file-icon">PY</span><div><h3>Generar reporte</h3><p>Calcula el valor total y promedio del inventario.</p></div></div>
+                <label>Inventario JSON<textarea name="inventario" rows="3">[{"nombre":"Teclado","stock":4,"precio":50},{"nombre":"Mouse","stock":7,"precio":25}]</textarea></label>
+                <button class="run-button" type="submit">▶ Generar reporte</button>
+                <output class="result" aria-live="polite"><span>Reporte</span><strong>Esperando ejecución…</strong></output>
+              </form>
+            </div>
+          </section>
+
+          <section class="module-section accent-green" id="modulo-4">
+            <div class="module-heading"><div class="module-number">04</div><div class="module-title"><p>Módulo 4</p><h2>Operaciones</h2></div><div class="module-description">Procesá ventas y validá que un rango horario sea correcto.</div></div>
+            <div class="runner-grid">
+              <form class="runner-card" data-endpoint="ventas">
+                <div class="runner-head"><span class="file-icon">PY</span><div><h3>Procesar ventas</h3><p>Ingresá los montos y un descuento global.</p></div></div>
+                <label>Montos separados por comas<input name="ventas" value="500, 100, 250" required /></label>
+                <label>Descuento global %<input name="descuento" type="number" min="0" max="100" value="10" required /></label>
+                <button class="run-button" type="submit">▶ Procesar ventas</button>
+                <output class="result" aria-live="polite"><span>Resumen de ventas</span><strong>Esperando ejecución…</strong></output>
+              </form>
+              <form class="runner-card" data-endpoint="horario">
+                <div class="runner-head"><span class="file-icon">PY</span><div><h3>Validar horario</h3><p>El inicio debe ser anterior al final.</p></div></div>
+                <div class="field-row"><label>Hora de inicio<input name="inicio" type="time" value="08:00" required /></label><label>Hora de fin<input name="fin" type="time" value="17:00" required /></label></div>
+                <button class="run-button" type="submit">▶ Validar horario</button>
+                <output class="result" aria-live="polite"><span>Validación</span><strong>Esperando ejecución…</strong></output>
+              </form>
+            </div>
+          </section>
+        </div>
+        <footer><span>Actividad de Clase 3</span><span>López · Rivalta · Roggero</span></footer>
+      </main>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
