@@ -9,6 +9,11 @@
 #     else:
 #         return "Reprobado"
 
+# print(obtener_calificacion(10))
+# print(obtener_calificacion(8))
+# print(obtener_calificacion(6))
+# print(obtener_calificacion(4))
+
 # Codigo corregido
 def obtener_calificacion(nota):
     if not isinstance(nota, (int, float)) or not (0 <= nota <= 10):
